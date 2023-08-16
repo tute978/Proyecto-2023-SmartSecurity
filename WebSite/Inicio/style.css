@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+body {
+    background: rgb(54, 54, 54);
+}
+
+.navbar {
+    width: 100%;
+    height: 52px;
+    margin: auto;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #646464;
+}
+
+.brand-font {
+    font-size: 25px;
+    font-weight: 25;
+    letter-spacing: 2px;
+    color: white
+}
+
+.navbar1 {
+    height: 30px;
+    padding: 20px 0;
+    justify-content: center;
+    background: #4A4A4A;
+}
+
+.navbar1 ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10vw;
+}
+
+.navbar1 ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.login-form {
+    width: 451px;
+    height: 503px;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: #A6A6A6;
+    border-radius: 12px;
+    box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Parametros (son con respecto al objeto): Posicion Horizontal | Posicion Vertical | Difuminado | Expansion */
+}
+.login-form__image {
+    width: 45px;
+    height: 56px;
+    margin-top: 17px;
+    filter: drop-shadow(0px 4px 1px rgba(0, 0, 0, 0.25));
+}
+
+.login-form__h2 {
+    letter-spacing: 0.5px;
+    margin-top: 27px;
+}
+
+.login-form__p {
+    width: 260px;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    margin: 10px;
+}
+
+.login-form__text-input {
+    border-radius: 7px;
+    border: 4px solid #636363;
+    background: #D9D9D9;
+    box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 30px;
+    width: 338px;
+    height: 67px;
+    padding: 0 30px;
+    padding-top: 1px;
+    font-size: 20px;
+}
+
+.login-form__text-input::placeholder {
+    font-size: 24px;
+    color: #969696;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+}
+
+.login-form__button-container {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    height: 25%;
+    width: 100%;
+    padding: 35px;
+}
+
+.login-form__button {
+    font-size: 20px;
+    line-height: 0.5px;
+    letter-spacing: 1px;
+}
+
+.login-form__button--submit {
+    width: 115px;
+    height: 37px;
+    border-radius: 7px;
+    border: 1px solid #3E3D3D;
+    background:#515151;
+    box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.login-form__button--register {
+    color: #515151;
+    text-align: center;
+    background-color: transparent;
+    border-color: transparent;
+}
