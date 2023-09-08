@@ -1,11 +1,25 @@
-GET http://localhost:3000/users
+GET http://localhost:3000/tablas
 
 ###
 
-POST http://localhost:3000/users
+GET http://localhost:3000/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1cXVpdGF2b0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2OTQwOTQ5NTB9.x4HlBb0hSIi4rtlNPf5ymm_5eqqb2XAsRvHttXZdQx0
+
+###
+
+POST http://localhost:3000/login
 Content-Type: application/json
 
 {
     "email": "luquitavo@gmail.com",
     "password": "1234"
+}
+
+###
+
+POST http://localhost:3000/token
+Content-Type: application/json
+
+{
+    "refreshToken": 
 }
