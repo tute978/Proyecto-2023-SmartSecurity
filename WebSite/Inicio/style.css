@@ -17,6 +17,7 @@ header {
     padding: 10px 50px;
     font-family: 'Shippori Antique', sans-serif;
     position: fixed;
+    z-index: 2;
 }
 
 .navbar {
