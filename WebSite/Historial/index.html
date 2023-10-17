@@ -22,24 +22,24 @@
             <img src="../Images/Logo (5).png" alt="brand-logo">
 
             <div class="navbar__home-page">
-                <a href="#"><img src="../Images/SimboloHomePage.png" alt="SimboloHomePage"><br>Página Principal</a>
+                <a href="../Inicio/"><img src="../Images/SimboloHomePage.png" alt="SimboloHomePage"><br>Página Principal</a>
             </div>
                 
             <div class="navbar__info">
-                <a href="#"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
+                <a href="../Inicio/"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
             </div>
 
             <div class="navbar__historial">
-                <a href="#"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
+                <a href="../Historial/"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
             </div>
 
             <div class="navbar__camara">
                 <a href="#"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
             </div>
-        </div>            
-        <div class="login-btns-wrapper">
-            <a href="#">Registrarse</a>
-            <a href="#" class="login-btn">Iniciar Sesión</a>
+        </div>    
+        <div class="perfil">
+
+        </div>        
     </header>
 
     <div class="pagina">
@@ -63,7 +63,18 @@
                         </div>
 
                         <div class="historial__registro__opciones">
-                            <img src="../Images/Opciones registro historial.png" alt="">
+                            <button class="historial__registro__opciones__boton" onclick="Ocultar('1');"><img src="../Images/Opciones registro historial.png" alt=""></button>
+                            
+                            <div class="input" id="1">
+                                <button class="value">
+                                    <img src="../Images/icono descargar.png" alt="">                           
+                                    Descargar
+                                </button>
+                                <button class="value">
+                                    <img src="../Images/Icono tacho de basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +101,18 @@
                         </div>
 
                         <div class="historial__registro__opciones">
-                            <img src="../Images/Opciones registro historial.png" alt="">
+                            <button class="historial__registro__opciones__boton" onclick="Ocultar('2');"><img src="../Images/Opciones registro historial.png" alt=""></button>
+                            
+                            <div class="input" id="2">
+                                <button class="value">
+                                    <img src="../Images/icono descargar.png" alt="">                           
+                                    Descargar
+                                </button>
+                                <button class="value">
+                                    <img src="../Images/Icono tacho de basura.png" alt="">
+                                    Eliminar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +139,9 @@
                         </div>
 
                         <div class="historial__registro__opciones">
-                            <div class="input">
+                            <button class="historial__registro__opciones__boton" onclick="Ocultar('3');"><img src="../Images/Opciones registro historial.png" alt=""></button>
+                            
+                            <div class="input" id="3">
                                 <button class="value">
                                     <img src="../Images/icono descargar.png" alt="">                           
                                     Descargar
@@ -126,17 +150,42 @@
                                     <img src="../Images/Icono tacho de basura.png" alt="">
                                     Eliminar
                                 </button>
-                                
-                              </div>
-                            <img src="../Images/Opciones registro historial.png" alt="">
-                          </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="historial__registro__linea">
                     
                 </div>
+                <div class="aaaaaaaaaaaaaaaaaaaaaaaaaa">
+
+                </div>
             </div>
+
+            <!-- Necesito hacer un select de la base de datos que seleccione la hora, la info (quien entró/intentó entrar) y el clip de ese momento -->
+
         </div>
     </div>
+
+   <script src="./script.js" >
+   </script>
+   
+    <footer class="footer">
+        <div class="footer__image">
+            <img src="../Images/Logo con letras 1.png" alt="Logo con letras 1">
+        </div>
+        <div class="footer__links">
+            <span class="footer__links__home-page">Página Principal</span>
+            <span class="footer__links__informacion">Información</span>
+            <span class="footer__links__historial">Historial</span>
+            <span class="footer__links__camara">Cámara</span>
+        </div>
+        <div class="footer__contactos">
+            <span class="footer__contactos__texto">Contáctanos</span>
+            <img class="footer__contactos__iconos" src="../Images/Iconos de contactos.png" alt="Iconos de contactos">
+        </div>
+    </footer>
+
 </body>
 </html>

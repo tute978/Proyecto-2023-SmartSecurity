@@ -16,6 +16,7 @@ header {
     align-items: center;
     padding: 10px 50px;
     font-family: 'Shippori Antique', sans-serif;
+    position: fixed;
 }
 
 .navbar {
@@ -114,6 +115,22 @@ br{
     padding: 3px 12px 6px 12px;
     gap: 10px;
     width: 130px;
+    height: 34px;
+}
+
+.login-btn:hover{
+    background-color: #707070;
+}
+
+.register-btn:hover{
+    background-color: #707070;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    padding: 3px 8px 6px 8px;
+    gap: 10px;
+    width: 100px;
     height: 34px;
 }
 
