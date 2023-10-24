@@ -3,7 +3,7 @@ GET http://localhost:3000/tablas
 ###
 
 GET http://localhost:3000/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1cXVpdGF2b0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2OTQwOTQ5NTB9.x4HlBb0hSIi4rtlNPf5ymm_5eqqb2XAsRvHttXZdQx0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk3NTU1MjYxfQ.4TDPT5EhNMCRbD3YI7uL5RKxaEQb3qLtUECyzWEW8ws
 
 ###
 
@@ -11,15 +11,43 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "luquitavo@gmail.com",
-    "password": "1234"
+    "email": "mati@gmail.com",
+    "password": "5050"
 }
 
 ###
 
-POST http://localhost:3000/token
+POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "refreshToken": 
+    "email": "luquitavo@gmail.com",
+    "name": "luca",
+    "surname": "chami",
+    "password": "5050",
+    "confirmPassword": "5050"
+}
+
+###
+
+GET http://localhost:3000/token
+# Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk4MDU5MjAxLCJleHAiOjE3MDU4MzUyMDF9.4MLfOm_bcnQuu31XNg9O_-J8rxxFc9b4aPG-hv9A7WU
+
+###
+
+DELETE http://localhost:3000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk2NDI4Njg2fQ.hS8FuayUDQBdraa483JeU6WzMh0WENYM0L3GLH1PtIY"
+}
+
+###
+
+DELETE http://localhost:3000/deleteAccount
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlAZ21haWwuY29tIiwiaWF0IjoxNjk4MTQ5NjUwLCJleHAiOjE2OTgxNTMyNTB9.BKbAsjfyqLuZVMLxqFYqykSiOB2uvX_IcRctJcgKDKQ
+Content-Type: application/json
+
+{
+    "password": "5050"
 }
