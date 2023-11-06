@@ -503,7 +503,6 @@ br{
 
 
 
-
 .titulo{
     font-family: 'Montserrat', sans-serif;    
     font-size: 39px;
@@ -552,4 +551,9 @@ container{
 
 imagen{
     margin-right: 10%;
+}
+
+
+a{
+    color: white;
 }

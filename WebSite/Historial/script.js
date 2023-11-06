@@ -1,28 +1,175 @@
-let variable = false;
-const array = ['1', '2', '3'];
+let variable;
 
-array.forEach(element => {
-    document.getElementById(element).style.pointerEvents = "none";
-});
+function Ocultar(jotason) {
+    const elemento = document.getElementById(jotason.id);
+    console.log(elemento)
 
-function Ocultar(id) {
-    const elemento = document.getElementById(id);
-
-    if (variable) {
-        elemento.style.opacity = 0;
+    if (jotason.isOn) {
         elemento.style.pointerEvents = "none";
-        variable = false;
+        elemento.style.opacity = 0;
+        jotason.isOn = !jotason.isOn;
     } else {
-        elemento.style.opacity = 1;
+        elemento.classList.remove("invisible");
         elemento.style.pointerEvents = "auto";
-        variable = true;
+        elemento.style.opacity = 1;
+        jotason.isOn = !jotason.isOn;
     }
 }
 
-document.addEventListener('blur', () => {
-    array.forEach(element => {
-        document.getElementById(element).style.pointerEvents = "none";
-        document.getElementById(element).style.opacity = 0;
-        variable = false;
+// document.addEventListener('blur', () => {
+//     variable.forEach(element => {
+//         document.getElementById(element.id).style.pointerEvents = "none";
+//         document.getElementById(element.id).style.opacity = 0;
+//         element.isOn = false;
+//     });
+// }, true);
+
+let info;
+
+async function hola() {
+    info = await fetch('')
+    info.json()
+
+}
+
+
+
+// let registro = {
+//     "hora": "02:00",
+//     "accion": "Emi se largo a llorar JAJAJAJAAJJ"
+// }
+
+// let registro1 = {
+//     "hora": "04:20",
+//     "accion": "Luca y Buñes se besaron antes de entrar por la puerta"
+// }
+
+// let resgistro2 = {
+//     "hora": "10:00",
+//     "accion": "Colón se chapo a Vicky"
+// }
+// let fetch = [registro, registro1, resgistro2];
+
+// document.getElementById("hora").innerHTML = registro.hora;
+// document.getElementById("accion").innerHTML = registro.accion;
+
+
+// const registro3 = document.getElementById("roncocapo").cloneNode(true);
+
+// registro3.textContent = "qwerty";
+// registro3.id = "hora";
+// registro3.setAttribute('class', 'registro3__hora');
+
+const registro = (id, hora, description) => {
+    return `
+    <div class="historial__registro" id="historial${id}">
+        <div class="historial__registro__info">
+            <div class="registro__texto">
+                <div class="historial__registro__hora">
+                    <span class="parrafo">${hora}</span>
+                </div>
+
+                <div class="historial__registro__accion">
+                    <span class="parrafo">${description}</span>
+                </div>
+            </div>
+
+            <div class="historial__registro__iconos">
+                <div class="historial__registro__imagen">
+                    <img src="../Images/Camara registro historial.png" alt="Camara registro historial">
+                </div>
+
+                <div class="historial__registro__opciones">
+                    <button dataid="${id}" class="historial__registro__opciones__boton"><img src="../Images/Opciones registro historial.png" alt=""></button>
+                </div>
+                <div class="input invisible" id="button${id}">
+                    <button class="value descargar">
+                        <img src="../Images/icono descargar.png" alt="">                           
+                        Descargar
+                    </button>
+                    <button class="value eliminar" dataid="${id}" onclick="console.log('hola')">
+                        <img src="../Images/Icono tacho de basura.png" alt="">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="historial__registro__linea">
+            
+        </div>
+    </div>`
+}
+
+const updateClick = () => {
+    Array.from(document.getElementsByClassName('historial__registro__opciones__boton')).forEach((element) => {
+        const id = element.getAttribute("dataid");
+
+        console.log(element);
+
+        element.addEventListener("click", (e) => {
+            Ocultar(variable.find(x => x.id == `button${id}`));
+        });
     });
-}, true);
+    console.log("AAAAAAA")
+}
+
+const ocultarVariable = () => {
+    let array = []
+    Array.from(document.getElementsByClassName('historial__registro__opciones__boton')).forEach(element => {
+        const id = element.getAttribute("dataid");
+
+        array.push({
+            id: `button${id}`,
+            isOn: false
+        })
+    });
+    return array;
+};
+
+
+/*
+Averiguar la manera de hacer un array con lo que venga del fetch
+Aprender como crear nuevos registros y meterle la informacion del fetch
+
+
+Cosas que me dice chami que haga:
+- Fetch on informacion que me puede legar a llegar
+-
+*/
+
+function agregaEvento() {
+    Array.from(document.getElementsByClassName('eliminar')).forEach(element => {
+        console.log(element);
+        console.log("aaaa");
+        element.addEventListener("click", () => {
+            console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+            const id = element.getAttribute("dataid");
+
+            const node = document.getElementById(`historial${id}`);
+            if (node.parentNode) {
+                //node.parentNode.removeChild(node)
+            }
+        });
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
+    document.getElementById("historial").innerHTML += registro(2, "14:50", "Hola");
+    document.getElementById("historial").innerHTML += registro(3, "14:50", "Hola");
+    document.getElementById("historial").innerHTML += registro(4, "14:50", "Hola");
+    document.getElementById("historial").innerHTML += registro(5, "14:50", "Hola");
+
+    variable = ocultarVariable();
+    console.log(variable);
+    agregaEvento();
+    updateClick();
+});
+
+
+//Hacer un overlay invisible desde html que este arriba de todo el css con z index 
+//pero abajo del pop up, cuando se aprieta cualquier boton del pop up hacer que se 
+//corra lo que quiero que haga y despues al final se llame a la funcion ocultar, 
+//si se clickea el overlay tambien llamar a la funcion ocultar y ocultarse a si mismo
