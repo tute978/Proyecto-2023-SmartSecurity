@@ -1,14 +1,23 @@
 let variable;
 
+document.getElementById('overlay').addEventListener('click', (overlay) => {
+    const objeto = document.getElementById(overlay);
+    Ocultar(variable.find(x => x.isOn === true));
+});
+
 function Ocultar(jotason) {
     const elemento = document.getElementById(jotason.id);
     console.log(elemento)
+    const overlay = document.getElementById("overlay");
+    
 
     if (jotason.isOn) {
+        overlay.style.pointerEvents="none";
         elemento.style.pointerEvents = "none";
         elemento.style.opacity = 0;
         jotason.isOn = !jotason.isOn;
     } else {
+        overlay.style.pointerEvents="auto";
         elemento.classList.remove("invisible");
         elemento.style.pointerEvents = "auto";
         elemento.style.opacity = 1;
@@ -34,32 +43,6 @@ async function hola() {
 
 
 
-// let registro = {
-//     "hora": "02:00",
-//     "accion": "Emi se largo a llorar JAJAJAJAAJJ"
-// }
-
-// let registro1 = {
-//     "hora": "04:20",
-//     "accion": "Luca y Buñes se besaron antes de entrar por la puerta"
-// }
-
-// let resgistro2 = {
-//     "hora": "10:00",
-//     "accion": "Colón se chapo a Vicky"
-// }
-// let fetch = [registro, registro1, resgistro2];
-
-// document.getElementById("hora").innerHTML = registro.hora;
-// document.getElementById("accion").innerHTML = registro.accion;
-
-
-// const registro3 = document.getElementById("roncocapo").cloneNode(true);
-
-// registro3.textContent = "qwerty";
-// registro3.id = "hora";
-// registro3.setAttribute('class', 'registro3__hora');
-
 const registro = (id, hora, description) => {
     return `
     <div class="historial__registro" id="historial${id}">
@@ -81,16 +64,17 @@ const registro = (id, hora, description) => {
 
                 <div class="historial__registro__opciones">
                     <button dataid="${id}" class="historial__registro__opciones__boton"><img src="../Images/Opciones registro historial.png" alt=""></button>
-                </div>
-                <div class="input invisible" id="button${id}">
-                    <button class="value descargar">
-                        <img src="../Images/icono descargar.png" alt="">                           
-                        Descargar
-                    </button>
-                    <button class="value eliminar" dataid="${id}" onclick="console.log('hola')">
-                        <img src="../Images/Icono tacho de basura.png" alt="">
-                        Eliminar
-                    </button>
+
+                    <div class="input invisible" id="button${id}">
+                        <button class="value descargar">
+                            <img src="../Images/icono descargar.png" alt="">                           
+                            Descargar
+                        </button>
+                        <button class="value eliminar" dataid="${id}" onclick="console.log('hola')">
+                            <img src="../Images/Icono tacho de basura.png" alt="">
+                            Eliminar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,7 +131,7 @@ function agregaEvento() {
 
             const node = document.getElementById(`historial${id}`);
             if (node.parentNode) {
-                //node.parentNode.removeChild(node)
+                node.parentNode.removeChild(node)
             }
         });
     });
@@ -157,10 +141,10 @@ function agregaEvento() {
 document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(2, "14:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(3, "14:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(4, "14:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(5, "14:50", "Hola");
+    document.getElementById("historial").innerHTML += registro(2, "14:50", "Hello");
+    document.getElementById("historial").innerHTML += registro(3, "14:50", "Shalom");
+    document.getElementById("historial").innerHTML += registro(4, "14:50", "Chiao");
+    document.getElementById("historial").innerHTML += registro(5, "14:50", "Bonasera");
 
     variable = ocultarVariable();
     console.log(variable);
