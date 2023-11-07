@@ -1,20 +1,44 @@
-const loginForm = document.getElementById("loginForm")
-async function loginFormFunc(e){
+const registerForm = document.getElementById("registerForm")
+
+
+
+
+async function registerFormFunc(e){
     e.preventDefault();
-    const res = await fetch('http://localhost:3000/users', {
+    const res = await fetch('http://localhost:3000/register', {
         method: "POST",
+        headers: {
+            "Content-Type": "Application/json"
+        },
         body: JSON.stringify({
-            email: e.target[0].value,
-            password: e.target[1].value
+            name: e.target[0].value,
+            surname: e.target[1].value,
+            email: e.target[2].value,
+            password: e.target[3].value,
+            confirmPassword: e.target[4].value
         })
     });
         // .then(res => res.json())
-        // .then(data => console.log(data))
+        // .thenc(data => console.log(data))
         // .catch(error => console.log(error));
+
     const data = await res.json();
     console.log(data)
+    
+
+    if(data.success){
+        console.log("SIIIISSIIIISISIS");
+        location.href="../Inicio/"
+    }
+    else{
+        let mensaje = data.message;
+        let miDiv = document.getElementById("register-form__button-container");
+        console.log("NONONONNNONOOONONON");
+        console.log(miDiv)
+        miDiv.innerHTML = mensaje;
+    }
 }
-loginForm.addEventListener("submit", loginFormFunc)
+registerForm.addEventListener("submit", registerFormFunc)
 
 function btnLogin(a){
     location.href=a;

@@ -111,8 +111,18 @@ br{
     width: 40px;
     height: 40px;
     display: flex;
-    background-color: blue;
+    background-color: rgb(128, 128, 128);
     border-radius: 100%;
+    padding: auto;
+}
+
+.perfil__letra{
+    display: flex;
+    margin: auto;
+    color: #20ACDC;
+    font-size: 150%;
+    font-weight: 500;
+    line-height: 1%;
 }
 
 .pagina{
@@ -276,8 +286,6 @@ width: 15px
     flex-direction: row;
     padding: 41px 100px 41px 100px;
     justify-content: space-between;
-    position: sticky;
-    bottom: 0;
 }
 
 .footer__links{

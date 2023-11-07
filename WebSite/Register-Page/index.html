@@ -16,23 +16,23 @@
 
 </head>
 <body>
-    <form class="login-form" id="loginForm">
-        <img src="../Images/brand-logo.png" class="login-form__image">
-        <h2 class="login-form__h2 brand-font">Crea una nueva cuenta en Smart Security</h2>
-        <p class="login-form__p brand-font">Ingrese su nombre, apellido, correo electrónico y contraseña</p>
+    <form class="register-form" id="registerForm">
+        <img src="../Images/brand-logo.png" class="register-form__image">
+        <h2 class="register-form__h2 brand-font">Crea una nueva cuenta en Smart Security</h2>
+        <p class="register-form__p brand-font">Ingrese su nombre, apellido, correo electrónico y contraseña</p>
         
-        <div class="login-form__text-container">
+        <div class="register-form__text-container">
             <input type="text" placeholder="Nombre" class="register-form__text-input__nombre">
             <input type="text" placeholder="Apellido" class="register-form__text-input__apellido">
-            <input type="text" placeholder="Correo Electrónico" class="register-form__text-input__correo-electronico">
+            <input type="email" placeholder="Correo Electrónico" class="register-form__text-input__correo-electronico">
             <input type="password" placeholder="Contraseña" class="register-form__text-input__contraseña">
             <input type="password" placeholder="Contraseña" class="register-form__text-input__contraseña">
         </div>      
         
 
-        <div class="login-form__button-container">
-            <button onclick="btnLogin('../Login-Page')" class="login-form__button login-form__button--register">Iniciar Sesión</button>
-            <input type="submit" value="Siguiente" class="login-form__button login-form__button--submit">
+        <div class="register-form__button-container">
+            <button onclick="btnLogin('../Login-Page')" class="register-form__button register-form__button--register">Iniciar Sesión</button>
+            <input type="submit" value="Siguiente" class="register-form__button register-form__button--submit">
         </div>
     </form>
 

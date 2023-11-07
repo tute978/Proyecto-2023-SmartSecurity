@@ -34,11 +34,14 @@ function Ocultar(jotason) {
 // }, true);
 
 let info;
+let hora;
+let descripcion;
 
-async function hola() {
+async function RecogerInfo() {
     info = await fetch('')
     info.json()
-
+    //hora = info.hora;
+    //descripcion = info.descripcion
 }
 
 
@@ -126,12 +129,12 @@ function agregaEvento() {
         console.log(element);
         console.log("aaaa");
         element.addEventListener("click", () => {
-            console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
             const id = element.getAttribute("dataid");
 
             const node = document.getElementById(`historial${id}`);
             if (node.parentNode) {
                 node.parentNode.removeChild(node)
+                document.getElementById("overlay").style.pointerEvents = "none";
             }
         });
     });
@@ -139,6 +142,8 @@ function agregaEvento() {
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+    //
+    //document
 
     document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
     document.getElementById("historial").innerHTML += registro(2, "14:50", "Hello");
