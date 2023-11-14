@@ -3,7 +3,7 @@ GET http://localhost:3000/tablas
 ###
 
 GET http://localhost:3000/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk3NTU1MjYxfQ.4TDPT5EhNMCRbD3YI7uL5RKxaEQb3qLtUECyzWEW8ws
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjEwMTgsImV4cCI6MTY5OTk2NDYxOH0.XeYN_IBzA4tecSRVIFjpfEAb8ToNveM_0UmptBhxXK4  
 
 ###
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/token
-# Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk4MDU5MjAxLCJleHAiOjE3MDU4MzUyMDF9.4MLfOm_bcnQuu31XNg9O_-J8rxxFc9b4aPG-hv9A7WU
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjQ3ODMsImV4cCI6MTcwNzc0MDc4M30.NxRJPSrcgr2_A68DfqGFDn7-mJJhfkDp3MQygD-Zris
 
 ###
 

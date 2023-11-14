@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Sesión</title>
+    <link rel="stylesheet" href="style.css">
+
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <form class="register-form" id="registerForm">
+        <img src="../Images/brand-logo.png" class="register-form__image">
+        <h2 class="register-form__h2 brand-font">Crea una nueva cuenta en Smart Security</h2>
+        <p class="register-form__p brand-font" id="register-form__p brand-font">Ingrese su nombre, apellido, correo electrónico y contraseña</p>
+        <p id="error"></p>
+
+        <div class="register-form__text-input__container">
+            <input type="text" placeholder="Nombre" class="register-form__text-input">
+            <input type="text" placeholder="Apellido" class="register-form__text-input">
+            <input type="email" placeholder="Correo Electrónico" class="register-form__text-input">
+            <input type="password" placeholder="Contraseña" class="register-form__text-input">
+            <input type="password" placeholder="Contraseña" class="register-form__text-input">
+        </div>      
+        
+
+        <div class="register-form__button-container" id="register-form__button-container">
+            <button onclick="btnLogin('../Login-Page')" class="register-form__button register-form__button--register">Iniciar Sesión</button>
+            <input type="submit" value="Siguiente" class="register-form__button register-form__button--submit">
+        </div>
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+</html>

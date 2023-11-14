@@ -16,6 +16,9 @@
 
 </head>
 <body>
+<div class="overlay" id="overlay"> 
+    
+</div>
     <header>
         <div class="navbar">
             
@@ -26,7 +29,7 @@
             </div>
                 
             <div class="navbar__info">
-                <a href="../Inicio/"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
+                <a href="../Inicio/#caracteristicas"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
             </div>
 
             <div class="navbar__historial">
@@ -37,15 +40,15 @@
                 <a href="#"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
             </div>
         </div>    
-        <div class="perfil">
-
+        <div class="perfil" >
+            <span class="perfil__letra">A</span>
         </div>        
     </header>
 
     <div class="pagina">
 
-        <div class="historial">
-            <div class="historial__registro">
+        <div class="historial" id="historial">
+            <!-- <div class="historial__registro invisible" id="roncocapo">
                 <div class="historial__registro__info">
                     <div class="registro__texto">
                         <div class="historial__registro__hora">
@@ -81,17 +84,17 @@
                 <div class="historial__registro__linea">
                     
                 </div>
-            </div>
-
+            </div> -->
+<!-- 
             <div class="historial__registro1">
                 <div class="historial__registro__info">
                     <div class="registro__texto">
                         <div class="historial__registro__hora">
-                            <span class="parrafo">11:59</span>
+                            <span class="parrafo" id="hora">11:59</span>
                         </div>
 
                         <div class="historial__registro__accion">
-                            <span class="parrafo">Luca ha intentado ingresar borracho a la casa</span>
+                            <span class="parrafo" id="accion">Luca ha intentado ingresar borracho a la casa</span>
                         </div>
                     </div>
 
@@ -158,12 +161,11 @@
                 <div class="historial__registro__linea">
                     
                 </div>
-                <div class="aaaaaaaaaaaaaaaaaaaaaaaaaa">
+                <div class="aaaaaaaaaaaaaaaaaaaaaaaaaa"> -->
 
-                </div>
+                <!-- </div> -->
             </div>
 
-            <!-- Necesito hacer un select de la base de datos que seleccione la hora, la info (quien entró/intentó entrar) y el clip de ese momento -->
 
         </div>
     </div>
@@ -176,10 +178,10 @@
             <img src="../Images/Logo con letras 1.png" alt="Logo con letras 1">
         </div>
         <div class="footer__links">
-            <span class="footer__links__home-page">Página Principal</span>
-            <span class="footer__links__informacion">Información</span>
-            <span class="footer__links__historial">Historial</span>
-            <span class="footer__links__camara">Cámara</span>
+            <a href="../Inicio/"><span class="footer__links__home-page">Página Principal</span></a>
+            <a href="../Inicio/#caracteristicas"><span class="footer__links__informacion">Información</span></a>
+            <a href="../Historial/"><span class="footer__links__historial">Historial</span></a>
+            <a href="../Camara"><span class="footer__links__camara">Cámara</span></a>
         </div>
         <div class="footer__contactos">
             <span class="footer__contactos__texto">Contáctanos</span>

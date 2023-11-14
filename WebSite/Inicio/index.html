@@ -15,6 +15,7 @@
 
 </head>
 <body>
+    <div class="overlay" id="overlay"></div>
     <header>
         <div class="navbar">
             
@@ -25,7 +26,7 @@
             </div>
                 
             <div class="navbar__info">
-                <a href="#caracteristicas"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
+                <a href="../Inicio/#caracteristicas"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
             </div>
 
             <div class="navbar__historial">
@@ -33,75 +34,85 @@
             </div>
 
             <div class="navbar__camara">
-                <a href="#"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
+                <a href="../Camara/"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
             </div>
         </div>            
-        <div class="login-btns-wrapper">
-            <a href="../Login-Page/" class="register-btn">Registrarse</a>
+        <div class="login-btns-wrapper" id="foto-de-perfil">
+            <a href="../Register-Page/" class="register-btn">Registrarse</a>
             <a href="../Login-Page/" class="login-btn">Iniciar Sesión</a>
+        </div>
+        
     </header>
-
-        <div class="descriptive-image"> 
-            <img src="../Images/desctiptive-image.png" alt="desctiptive-image">
-        </div>
-
-        <div class="basic-info">
-            <div class="basic-info__informacion">
-                <span class="titulo">Conexiones seguras, vidas tranquilas.</span>
-                <div class="basic-info__informacion__subtitulo"><span class="subtitulo">El mejor sistema de control de accesos inteligente.</span></div>
-                <span class="texto">En Smart Secutity nos preocupamos por tu seguridad. Nuestra prioridad ante todo es protegerte tanto a vos como a tus pertenencias.</span>
-                <button onclick=""  class="subtitulo">Empezar</button>
+        <div class="pre-body">
+            <div class="opciones__perfil" id="opciones__perfil">
+                <div class="opciones__cerrar-sesion">
+                    <span class="opciones__cerrar-sesion-texto">Cerrar Sesión</span>
+                </div>
+                <div class="opciones__eliminar-cuenta" id="opciones__eliminar-cuenta">
+                    <span class="opciones__eliminar-cuenta-texto">Eliminar Cuenta</span>
+                </div>
             </div>
-            <img src="../Images/Imagen-cerrojo.png" alt="Imagen-cerrojo" class="fotito">
-
-        </div>
-
-        <div class="problematica">
-            <div class="problematica__imagen"><img src="../Images/Imagen 2.png" alt="Imagen 2" class="Imagen__2"></div>
-            <div class="problematica__titulo-y-texto"><span class="titulo">Seguridad</span>
-            <span class="texto">No es un secreto que una de las cosas que mas preocupa a la mayoría es la seguridad de su propia casa. Ese sentimiento de intranquilidad es terrible.</span> 
-            <span class="texto">La inseguridad es un problema creciente en nuestra sociedad y nos sentimos inutiles al pensar que no hay nada que hacer al respecto. </span>
-            <span class="texto">Ese pensamiento está mal, ya que por mas de que no puedas cambiar la situación global, hay distintas maneras de mejorar tu propia situación. </span>
-            <span class="texto">Nosotros nos preocupamos por vos y es por eso que Smart Security viene a resolver ese problema. </span>
-            <span class="texto">Te aseguramos seguridad y confianza para que nunca vuelvas a estar preocupado respecto a la seguridad de tu casa.</span>
-            </div>
-        </div>
-
-        <div class="solucion">
-            <div class="solucion__titulo-y-texto">
-                <span class="titulo">Tranquilidad</span>
-                <div class="solucion__texto__parte1"><span class="texto">En Smart Security, el cliente se convierte en nuestra prioridad para garantizar una experiencia única y personalizada. Nuestro proyecto viene a resolver el gran problema que preocupa a la mayoría en la actualidad, la inseguridad.</span></div>
-                <div class="solucion__texto__parte1__1"><span class="texto">Contamos con un sistema que utiliza camaras, huellas digitales, código numérico y el convencional cerrojo con llave. </span></div>
-            </div>
-            <div class="solucion__imagen"><img src="../Images/Imagen Solucion.png" alt=""></div>
-            <div class="solucion__texto-2">
-                <div class="solucion__texto__parte2"><span class="texto">La combinacion de estos aspectos hace que la seguridad de tu casa aumente ya que no es necesario llevar las llaves de tu casa a todos lados en el caso de que te las roben.</span></div>
-                <div class="solucion__texto__parte2__1"><span class="texto">Y vas a ser capaz de acceder a la camara de tu puerta en cada momento, haciendo que puedas ver en todo momento y desde donde estés que esta pasando en tu puerta. </span></div>
-            </div>
-        </div>
-
-        <div class="caracteristicas" id="caracteristicas">
-            <div class="caracteristicas__titulo"><span class="titulo">Características</span></div>
-            <div class="caracteristicas__imagenes">
-                <div class="caracteristicas__imagenes__huella-digital"><img src="../Images/Vector 42.svg" alt="huella digital">
-                <span class="subtitulo">Lector de huella digital</span></div>
-
-                <div class="caracteristicas__imagenes__candado"><img src="../Images/Candadito.svg" alt="Candadito">
-                <span class="subtitulo">Sistema de bloqueo por electroimán</span></div>
-
-                <div class="caracteristicas__imagenes__teclado-numerico"><img src="../Images/Teclado Numerico simbolin.svg" alt="Teclado Numerico">
-                <span class="subtitulo">Teclado numérico con seguro PIN</span></div>
-
-                <div class="caracteristicas__imagenes__camara"><img src="../Images/Vector 11.svg" alt="camarita">
-                <span class="subtitulo">Cámara con Face ID y accesible en todo momento</span></div>
+            <div class="descriptive-image"> 
+                <img src="../Images/desctiptive-image.png" alt="desctiptive-image">
             </div>
 
-            <div class="caracteristicas__datos">
-                <div class="caracteristicas__datos__titulo"><span class="titulo">¿Qué es Smart Security?</span></div>
-                <div class="caracteristicas__datos__texto1"><span class="texto">Smart Security es un un sistema de control de accesos para una casa mediante tarjetas, huella digital, código y llave.</span></div>
-                <div class="caracteristicas__datos__texto2"><span class="texto">Contiene una base de datos en la cual se almacena un registro del momento en el qué se abre la puerta. También tiene un sistema qué envia un mail cada vez qué se intenta forzar la cerradura. </span></div>
+            <div class="basic-info">
+                <div class="basic-info__informacion">
+                    <span class="titulo">Conexiones seguras, vidas tranquilas.</span>
+                    <div class="basic-info__informacion__subtitulo"><span class="subtitulo">El mejor sistema de control de accesos inteligente.</span></div>
+                    <span class="texto">En Smart Secutity nos preocupamos por tu seguridad. Nuestra prioridad ante todo es protegerte tanto a vos como a tus pertenencias.</span>
+                    <button onclick="moveToRegister()" class="subtitulo" id="pointer">Empezar</button>
+                </div>
+                <img src="../Images/Imagen-cerrojo.png" alt="Imagen-cerrojo" class="fotito">
+
             </div>
-        </div>
+
+            <div class="problematica">
+                <div class="problematica__imagen"><img src="../Images/Imagen 2.png" alt="Imagen 2" class="Imagen__2"></div>
+                <div class="problematica__titulo-y-texto"><span class="titulo">Seguridad</span>
+                <span class="texto">No es un secreto que una de las cosas que mas preocupa a la mayoría es la seguridad de su propia casa. Ese sentimiento de intranquilidad es terrible.</span> 
+                <span class="texto">La inseguridad es un problema creciente en nuestra sociedad y nos sentimos inutiles al pensar que no hay nada que hacer al respecto. </span>
+                <span class="texto">Ese pensamiento está mal, ya que por mas de que no puedas cambiar la situación global, hay distintas maneras de mejorar tu propia situación. </span>
+                <span class="texto">Nosotros nos preocupamos por vos y es por eso que Smart Security viene a resolver ese problema. </span>
+                <span class="texto">Te aseguramos seguridad y confianza para que nunca vuelvas a estar preocupado respecto a la seguridad de tu casa.</span>
+                </div>
+            </div>
+
+            <div class="solucion">
+                <div class="solucion__titulo-y-texto">
+                    <span class="titulo">Tranquilidad</span>
+                    <div class="solucion__texto__parte1"><span class="texto">En Smart Security, el cliente se convierte en nuestra prioridad para garantizar una experiencia única y personalizada. Nuestro proyecto viene a resolver el gran problema que preocupa a la mayoría en la actualidad, la inseguridad.</span></div>
+                    <div class="solucion__texto__parte1__1"><span class="texto">Contamos con un sistema que utiliza camaras, huellas digitales, código numérico y el convencional cerrojo con llave. </span></div>
+                </div>
+                <div class="solucion__imagen"><img src="../Images/Imagen Solucion.png" alt=""></div>
+                <div class="solucion__texto-2">
+                    <div class="solucion__texto__parte2"><span class="texto">La combinacion de estos aspectos hace que la seguridad de tu casa aumente ya que no es necesario llevar las llaves de tu casa a todos lados en el caso de que te las roben.</span></div>
+                    <div class="solucion__texto__parte2__1"><span class="texto">Y vas a ser capaz de acceder a la camara de tu puerta en cada momento, haciendo que puedas ver en todo momento y desde donde estés que esta pasando en tu puerta. </span></div>
+                </div>
+            </div>
+
+            <div class="caracteristicas" id="caracteristicas">
+                <div class="caracteristicas__titulo"><span class="titulo">Características</span></div>
+                <div class="caracteristicas__imagenes">
+                    <div class="caracteristicas__imagenes__huella-digital"><img src="../Images/Vector 42.svg" alt="huella digital">
+                    <span class="subtitulo">Lector de huella digital</span></div>
+
+                    <div class="caracteristicas__imagenes__candado"><img src="../Images/Candadito.svg" alt="Candadito">
+                    <span class="subtitulo">Sistema de bloqueo por electroimán</span></div>
+
+                    <div class="caracteristicas__imagenes__teclado-numerico"><img src="../Images/Teclado Numerico simbolin.svg" alt="Teclado Numerico">
+                    <span class="subtitulo">Teclado numérico con seguro PIN</span></div>
+
+                    <div class="caracteristicas__imagenes__camara"><img src="../Images/Vector 11.svg" alt="camarita">
+                    <span class="subtitulo">Cámara con Face ID y accesible en todo momento</span></div>
+                </div>
+
+                <div class="caracteristicas__datos">
+                    <div class="caracteristicas__datos__titulo"><span class="titulo">¿Qué es Smart Security?</span></div>
+                    <div class="caracteristicas__datos__texto1"><span class="texto">Smart Security es un un sistema de control de accesos para una casa mediante tarjetas, huella digital, código y llave.</span></div>
+                    <div class="caracteristicas__datos__texto2"><span class="texto">Contiene una base de datos en la cual se almacena un registro del momento en el qué se abre la puerta. También tiene un sistema qué envia un mail cada vez qué se intenta forzar la cerradura. </span></div>
+                </div>
+            </div>
 
 
         
@@ -117,7 +128,7 @@
                         </div>
 
                         <div class="informacion-personal__perfiles__matias-ronconi" id="perfil">
-                            <img class="informacion-personal__img" src="../Images/Icono Usuario (3).png" alt="Icono-Usuario">
+                            <img class="informacion-personal__img" src="../Images/Ñomco.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Matías Ronconi</span></div>
                                 <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de realizar tanto el deseño de la página web como la programación de la misma</span></div>
@@ -139,17 +150,17 @@
                         </div>
 
                         <div class="informacion-personal__perfiles__simon-escolar" id="perfil">
-                            <img class="informacion-personal__img" src="../Images/Icono Usuario (3).png" alt="Icono-Usuario">
+                            <img class="informacion-personal__img" src="../Images/Limon.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Simon Escolar</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de la programacion y conexiones del rfid y el sensor de huella digital y de todo en general</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de la programacion y las conexiones del RFID con la placa ESP8266</span></div>
                             </div>
                         </div>
                         <div class="informacion-personal__perfiles__matias-buñes" id="perfil">
-                            <img class="informacion-personal__img" src="../Images/Icono Usuario (3).png" alt="Icono-Usuario">
+                            <img class="informacion-personal__img" src="../Images/Muñes.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Matías Buñes</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el principal encargado de armar las conexiones del arduino y programar el microcontrolador.</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el principal encargado de armar las conexiones del arduino y programar el microcontrolador. Su principal rol en el proyecto fue jugar al Dream League Soccer, juego en el que se a vuelto muy bueno por el tiempo que le dedico a este y no a proyecto</span></div>
                             </div>
                         </div>
 
@@ -161,31 +172,32 @@
                         </div>
 
                         <div class="informacion-personal__perfiles__luca-chami" id="perfil">
-                            <img class="informacion-personal__img" src="../Images/Icono Usuario (3).png" alt="Icono-Usuario">
+                            <img class="informacion-personal__img" src="../Images/Chamin.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Luca Chami</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Se fue de viaje</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Programador de la base de datos y del conversor del tipo de video de la camara a un formato de archivo el cual pueda reproducir la pagina web</span></div>
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-
+    </div>
 </body>
 <footer class="footer">
     <div class="footer__image">
         <img src="../Images/Logo con letras 1.png" alt="Logo con letras 1">
     </div>
     <div class="footer__links">
-        <span class="footer__links__home-page">Página Principal</span>
-        <span class="footer__links__informacion">Información</span>
-        <span class="footer__links__historial">Historial</span>
-        <span class="footer__links__camara">Cámara</span>
+        <a href="../Inicio/"><span class="footer__links__home-page">Página Principal</span></a>
+        <a href="../Inicio/#caracteristicas"><span class="footer__links__informacion">Información</span></a>
+        <a href="../Historial/"><span class="footer__links__historial">Historial</span></a>
+        <a href="../Camara"><span class="footer__links__camara">Cámara</span></a>
     </div>
     <div class="footer__contactos">
         <span class="footer__contactos__texto">Contáctanos</span>
         <img class="footer__contactos__iconos" src="../Images/Iconos de contactos.png" alt="Iconos de contactos">
     </div>
 </footer>
+<script src="./script.js"></script>
 </html>
