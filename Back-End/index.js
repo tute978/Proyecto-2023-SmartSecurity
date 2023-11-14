@@ -12,7 +12,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', require('./Routers/authentication'));
+app.use('/', require('./Routers/authentication').router);
+
+app.use('/hist', require('./Routers/historial'))
 
 //-----------------------------------------------------------------------------------------------------------
 

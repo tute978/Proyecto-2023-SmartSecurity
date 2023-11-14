@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 require('dotenv').config();
 
@@ -12,49 +13,6 @@ const connection = mysql.createPool(process.env.DATABASE_URL).promise();
 router.use(cookieParser());
 
 router.post('/register', async (req, res) => {
-    // let credential = {
-    //     success: false,
-    //     message: null,
-    //     accessToken: null
-    // };
-
-    // const [row] =  await connection.query(`SELECT email FROM Users WHERE email = ?`, [req.body.email]);
-
-    // if(row.length != 0) {
-    //     credential.message = "El correo ya esta registrado, por favor use otro";
-    //     res.json(credential);
-    //     return;
-    // }
-    // if(req.body.password != req.body.confirmPassword){
-    //     credential.message = "Las contraseñas no coinsiden";
-    //     res.json(credential);
-    //     return;
-    // }
-    // if(!req.body.name || !req.body.surname){
-    //     credential.message = "El nombre o el apellido no puede estar vacio";
-    //     res.json(credential);
-    //     return;
-    // }
-
-    // credential.success = true;
-    // credential.message = "Registro exitoso";
-    
-    // const user = {
-    //     email: req.body.email,
-    //     password: req.body.password
-    // };
-
-    // credential.accessToken = generateAccessToken(user);
-    // credential.refreshToken = await updateRefreshToken(user, req.body.email);
-
-    // await connection.query('INSERT INTO Users (email, name, surname, password, refreshToken) VALUES (?, ?, ?, ?, ?)', [req.body.email, req.body.name, req.body.surname, req.body.password, credential.refreshToken]);
-
-    // res.cookie('refreshToken', refreshToken, {
-    //     httpOnly: true
-    // });
-    // res.json(credential);
-
-    //--------------------------------------------------------
 
     const [row] =  await connection.query(`SELECT email FROM Users WHERE email = ?`, [req.body.email]);
 
@@ -68,8 +26,12 @@ router.post('/register', async (req, res) => {
             credential.message = "El correo ya esta registrado, por favor use otro";
             return credential;
         }
+        if(!req.body.email.includes('@')){
+            credential.message = "El email no es valido"
+            return credential;
+        }
         if(req.body.password != req.body.confirmPassword){
-            credential.message = "Las contraseñas no coinsiden";
+            credential.message = "Las contraseñas no coinciden";
             return credential;
         }
         if(!req.body.name || !req.body.surname){
@@ -88,7 +50,8 @@ router.post('/register', async (req, res) => {
             httpOnly: true
         });
 
-        await connection.query('INSERT INTO Users (email, name, surname, password, refreshToken) VALUES (?, ?, ?, ?, ?)', [req.body.email, req.body.name, req.body.surname, req.body.password, refreshToken]);
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        await connection.query('INSERT INTO Users (email, name, surname, password, refreshToken) VALUES (?, ?, ?, ?, ?)', [req.body.email, req.body.name, req.body.surname, hashedPassword, refreshToken]);
     }
 
     res.json(credential);
@@ -96,12 +59,20 @@ router.post('/register', async (req, res) => {
 
 router.delete('/deleteAccount', authenticateToken, async (req, res) => {
     const [password] = await connection.query('SELECT password FROM Users WHERE email = ?', [req.user.email]);
-    if(password[0].password != req.body.password){
+    if(password.length === 0){
+        res.sendStatus(403);
+        return;
+    }
+    
+    const passwordChecked = await comparePassword(req.user.email, req.body.password);
+
+    if(!passwordChecked){
         res.sendStatus(403);
         return;
     }
 
     await connection.query('DELETE FROM Users WHERE email = ?', [req.user.email]);
+    await connection.query('DELETE FROM Historial WHERE userEmail = ?', [req.user.email]);
     res.sendStatus(200);
 });
 
@@ -112,7 +83,7 @@ router.get('/login', authenticateToken, (req, res) => {
 router.post('/login', async (req, res) => {
 
     const [row] =  await connection.query(`SELECT password, email FROM Users WHERE email = ?`, [req.body.email]);
-
+    passwordChecked = await comparePassword(req.body.email, req.body.password);
     payload = {
         email: req.body.email
     };
@@ -123,7 +94,7 @@ router.post('/login', async (req, res) => {
             credential.message = "El correo no existe";
             return credential;
         }
-        if(req.body.password != row[0].password){
+        if(!passwordChecked){
             credential.message = "La constraseña es incorrecta";
             return credential;
         }
@@ -141,7 +112,7 @@ router.post('/login', async (req, res) => {
 
 router.delete('/logout', async (req, res) => {
     res.clearCookie('refreshToken');
-    deleteRefreshToken(req.body.token);
+    deleteRefreshToken(req.cookies.refreshToken);
     res.sendStatus(204);
 });
 
@@ -168,6 +139,15 @@ router.get('/tablas', async (req, res) => {
     const [query] = await connection.query('SELECT * FROM Users');
     res.json(query);
 });
+
+async function comparePassword(email, password){
+    const [query] = await connection.query('SELECT password FROM Users WHERE email = ?', [email]);
+    if(query.length === 0){
+        return false;
+    } else {
+        return await bcrypt.compare(password, query[0].password);
+    }
+}
 
 function generateAccessToken(payload){
     return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h'});
@@ -222,4 +202,7 @@ function loginRegister(payload, row, conditions){
     return credential;
 }
 
-module.exports = router;
+module.exports = {
+    router,
+    authenticateToken
+};

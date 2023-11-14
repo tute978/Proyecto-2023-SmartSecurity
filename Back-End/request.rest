@@ -11,7 +11,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "mati@gmail.com",
+    "email": "luquitavo@gmail.com",
     "password": "5050"
 }
 
@@ -22,8 +22,8 @@ Content-Type: application/json
 
 {
     "email": "luquitavo@gmail.com",
-    "name": "luca",
-    "surname": "chami",
+    "name": "Luca",
+    "surname": "Chami",
     "password": "5050",
     "confirmPassword": "5050"
 }
@@ -36,18 +36,81 @@ GET http://localhost:3000/token
 ###
 
 DELETE http://localhost:3000/logout
-Content-Type: application/json
-
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk2NDI4Njg2fQ.hS8FuayUDQBdraa483JeU6WzMh0WENYM0L3GLH1PtIY"
-}
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1cXVpdGF2b0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjY5NTMsImV4cCI6MTcwNzc0Mjk1M30.0mP6YefdyENb5mGubB48q1JSTxiJNw-VulW8MW1PsdA
 
 ###
 
 DELETE http://localhost:3000/deleteAccount
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlAZ21haWwuY29tIiwiaWF0IjoxNjk4MTQ5NjUwLCJleHAiOjE2OTgxNTMyNTB9.BKbAsjfyqLuZVMLxqFYqykSiOB2uvX_IcRctJcgKDKQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE2OTk4ODc1NzUsImV4cCI6MTY5OTg5MTE3NX0.hJzSnNj1NGQIA2JlkIuf9PE0jGoagysVWDzENA0NEls
 Content-Type: application/json
 
 {
-    "password": "5050"
+    "password": "4000"
+}
+
+###
+
+POST http://192.168.32.67:3000/hist/
+Content-Type: application/json
+
+{
+    "hola": "hla"
+}
+
+###
+
+GET http://localhost:3000/hist/tabla
+
+###
+
+GET http://localhost:3000/hist/card
+
+###
+
+GET http://localhost:3000/hist/card/finger-print
+
+###
+
+POST http://localhost:3000/hist/card/register
+Content-Type: application/json
+
+{
+    "id": "49394iDSD",
+    "name": "Daniela",
+    "surname": "Java",
+    "isFingerPrint": true
+}
+
+###
+
+DELETE http://localhost:3000/hist/card/delete
+Content-Type: application/json
+
+{
+    "id": "23D92382"
+}
+
+###
+
+GET http://localhost:3000/hist/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1cXVpdGF2b0BnbWFpbC5jb20iLCJpYXQiOjE2OTk4OTYxNDQsImV4cCI6MTY5OTg5OTc0NH0.RjyVAjP6K6q5FceLQ3EfG-TxShT3b4vvqM376L4PqIY
+
+###
+
+POST http://localhost:3000/hist/register/create
+Content-Type: application/json
+
+{
+    "idCard": "8D08718B",
+    "ownerEmail": "luquitavo@gmail.com"
+    //"description": "ingreso"
+}
+
+###
+
+POST http://localhost:3000/hist/register/delete
+Content-Type: application/json
+
+{
+    "id": 17
 }

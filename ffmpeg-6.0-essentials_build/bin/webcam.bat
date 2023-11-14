@@ -1,0 +1,1 @@
+ffmpeg -v verbose  -i rtsp://192.168.32.142:8554/mjpeg/1 -vf scale=1920:1080  -vcodec libx264 -r 25 -b:v 1000000 -crf 31 -acodec aac  -sc_threshold 0 -f hls  -hls_time 5  -segment_time 5 -hls_list_size 5 C:\AppServ\www\Proyecto-2023-SmartSecurity\RTSP-HLS-SERVER/stream.m3u8
