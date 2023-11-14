@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
+    <title>Registro de Sesión</title>
     <link rel="stylesheet" href="style.css">
 
       
@@ -19,18 +19,19 @@
     <form class="register-form" id="registerForm">
         <img src="../Images/brand-logo.png" class="register-form__image">
         <h2 class="register-form__h2 brand-font">Crea una nueva cuenta en Smart Security</h2>
-        <p class="register-form__p brand-font">Ingrese su nombre, apellido, correo electrónico y contraseña</p>
-        
-        <div class="register-form__text-container">
-            <input type="text" placeholder="Nombre" class="register-form__text-input__nombre">
-            <input type="text" placeholder="Apellido" class="register-form__text-input__apellido">
-            <input type="email" placeholder="Correo Electrónico" class="register-form__text-input__correo-electronico">
-            <input type="password" placeholder="Contraseña" class="register-form__text-input__contraseña">
-            <input type="password" placeholder="Contraseña" class="register-form__text-input__contraseña">
+        <p class="register-form__p brand-font" id="register-form__p brand-font">Ingrese su nombre, apellido, correo electrónico y contraseña</p>
+        <p id="error"></p>
+
+        <div class="register-form__text-input__container">
+            <input type="text" placeholder="Nombre" class="register-form__text-input">
+            <input type="text" placeholder="Apellido" class="register-form__text-input">
+            <input type="email" placeholder="Correo Electrónico" class="register-form__text-input">
+            <input type="password" placeholder="Contraseña" class="register-form__text-input">
+            <input type="password" placeholder="Contraseña" class="register-form__text-input">
         </div>      
         
 
-        <div class="register-form__button-container">
+        <div class="register-form__button-container" id="register-form__button-container">
             <button onclick="btnLogin('../Login-Page')" class="register-form__button register-form__button--register">Iniciar Sesión</button>
             <input type="submit" value="Siguiente" class="register-form__button register-form__button--submit">
         </div>

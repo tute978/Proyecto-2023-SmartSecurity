@@ -29,10 +29,11 @@ async function registerFormFunc(e){
     if(data.success){
         console.log("SIIIISSIIIISISIS");
         location.href="../Inicio/"
+        sessionStorage.setItem('accessToken', data.accessToken);
     }
     else{
         let mensaje = data.message;
-        let miDiv = document.getElementById("register-form__button-container");
+        let miDiv = document.getElementById("error");
         console.log("NONONONNNONOOONONON");
         console.log(miDiv)
         miDiv.innerHTML = mensaje;

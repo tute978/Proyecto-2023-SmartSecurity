@@ -3,7 +3,7 @@ GET http://localhost:3000/tablas
 ###
 
 GET http://localhost:3000/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk3NTU1MjYxfQ.4TDPT5EhNMCRbD3YI7uL5RKxaEQb3qLtUECyzWEW8ws
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjEwMTgsImV4cCI6MTY5OTk2NDYxOH0.XeYN_IBzA4tecSRVIFjpfEAb8ToNveM_0UmptBhxXK4  
 
 ###
 
@@ -11,8 +11,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "luquitavo@gmail.com",
-    "password": "5050"
+    "email": "matibunes@gmail.com",
+    "password": "1005"
 }
 
 ###
@@ -31,7 +31,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/token
-# Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwiaWF0IjoxNjk4MDU5MjAxLCJleHAiOjE3MDU4MzUyMDF9.4MLfOm_bcnQuu31XNg9O_-J8rxxFc9b4aPG-hv9A7WU
+Cookie: refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjQ3ODMsImV4cCI6MTcwNzc0MDc4M30.NxRJPSrcgr2_A68DfqGFDn7-mJJhfkDp3MQygD-Zris
 
 ###
 
@@ -39,15 +39,15 @@ DELETE http://localhost:3000/logout
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBlcGVAZ21haWwuY29tIiwicGFzc3dvcmQiOiI5MDkwIiwiaWF0IjoxNjk2NDI4Njg2fQ.hS8FuayUDQBdraa483JeU6WzMh0WENYM0L3GLH1PtIY"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTkyOTk3MjEsImV4cCI6MTY5OTMwMzMyMX0.tAFaBZ-lMHalrmryo2xoNT8EMcn76IyHgM5-QvB-9Wo"
 }
 
 ###
 
 DELETE http://localhost:3000/deleteAccount
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlAZ21haWwuY29tIiwiaWF0IjoxNjk4MTQ5NjUwLCJleHAiOjE2OTgxNTMyNTB9.BKbAsjfyqLuZVMLxqFYqykSiOB2uvX_IcRctJcgKDKQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGlidW5lc0BnbWFpbC5jb20iLCJpYXQiOjE2OTk5NjEwMTgsImV4cCI6MTY5OTk2NDYxOH0.XeYN_IBzA4tecSRVIFjpfEAb8ToNveM_0UmptBhxXK4
 Content-Type: application/json
 
 {
-    "password": "5050"
+    "password": "1005"
 }

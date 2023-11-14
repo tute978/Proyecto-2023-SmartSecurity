@@ -16,7 +16,12 @@ async function loginFormFunc(e){
         // .catch(error => console.log(error));
 
     const data = await res.json();
-    console.log(data)
+
+    if(data.success){
+        console.log(data)
+        sessionStorage.setItem('accessToken', data.accessToken);
+        location.href="../Inicio/";
+    }
 }
 loginForm.addEventListener("submit", loginFormFunc)
 

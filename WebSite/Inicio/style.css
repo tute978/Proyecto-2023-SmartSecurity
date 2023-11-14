@@ -137,11 +137,9 @@ br{
 
 .descriptive-image{
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
 }
-.descriptive-image img {
-    width: 100vw;
-}
+
 .basic-info{
     display: flex;
     flex-direction:row;
@@ -442,6 +440,9 @@ br{
 
 .informacion-personal__img{
     margin-right: 12px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
 }
 
 #perfil{
@@ -556,4 +557,99 @@ imagen{
 
 a{
     color: white;
+}
+
+.perfil{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    background-color: rgb(128, 128, 128);
+    border-radius: 100%;
+    padding: auto;
+    z-index: 26;
+}
+.perfil:hover{
+    cursor: pointer;
+}
+
+.perfil__letra{
+    display: flex;
+    margin: auto;
+    color: #20ACDC;
+    font-size: 150%;
+    font-weight: 500;
+    line-height: 1%;
+    user-select: none;
+}
+
+.opciones__perfil{
+    z-index: 30;
+    background-color: rgb(199, 199, 199);
+    height: auto;
+    margin-top: 70px;
+    width: auto;
+    padding: 0px 3px;
+    position: fixed;
+    right: 0;
+    border-radius: 10px;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.opciones__perfil:hover{
+    cursor: pointer;
+}
+
+.opciones__cerrar-sesion{
+    color: rgb(185, 185, 185);
+    font-family: 'Montserrat';
+    display: flex;
+    font-weight: 500;
+    margin-top: 3px;
+    background-color: rgb(88, 88, 88);
+    border-radius: 8px;
+    height: 50px;
+    align-items: center;
+    width: 153px;
+    padding-left: 8px;
+    user-select: none;
+}
+
+.opciones__eliminar-cuenta{
+    color: rgb(185, 185, 185);
+    font-family: 'Montserrat';
+    display: flex;
+    font-weight: 500;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background-color: rgb(88, 88, 88);
+    border-radius: 8px; 
+    height: 50px;
+    align-items: center;
+    width: 153px;
+    padding-left: 8px;
+    user-select: none;
+}
+
+.opciones__cerrar-sesion:hover{
+    cursor: pointer;
+    background-color: rgb(73, 73, 73);
+}
+
+.opciones__eliminar-cuenta:hover{
+    background-color: rgb(73, 73, 73);
+    cursor: pointer;
+}
+
+.overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10; 
+}
+#pointer:hover{
+    cursor: pointer;
 }
