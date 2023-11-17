@@ -595,6 +595,8 @@ a{
     justify-content: space-between;
     flex-direction: column;
     margin-right: 20px;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .opciones__perfil:hover{

@@ -12,7 +12,7 @@ async function changeProfilePic(){
     })
     
     if(result.status != 200) return;
-    
+
     const data = await result.json();
     let mail = data.email;
     mail = mail.toUpperCase();
@@ -73,3 +73,5 @@ const eliminarCuenta = document.getElementById("opciones__eliminar-cuenta");
 eliminarCuenta.addEventListener('click', () => {
     location.href = "../Delete-Account";
 });
+
+const { checkAccessToken } = require('../Functions');

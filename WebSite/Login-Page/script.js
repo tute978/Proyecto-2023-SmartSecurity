@@ -16,6 +16,11 @@ async function loginFormFunc(e){
         // .catch(error => console.log(error));
 
     const data = await res.json();
+    console.log(data);
+    let mensajeError = document.getElementById("mensaje-de-error");
+    console.log(mensajeError);
+    mensajeError.innerHTML = data.message;
+    scrollToTop();
 
     if(data.success){
         console.log(data)
@@ -29,3 +34,9 @@ function btnRegister(a){
     location.href=a;
 }
 
+const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Hace que el desplazamiento sea suave
+    });
+  };

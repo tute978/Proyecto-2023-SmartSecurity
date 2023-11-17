@@ -1,3 +1,6 @@
+import { checkAccessToken } from '../Functions/auth';
+
+let accessToken = sessionStorage.getItem('accessToken');
 let variable;
 
 document.getElementById('overlay').addEventListener('click', (overlay) => {
@@ -25,26 +28,20 @@ function Ocultar(jotason) {
     }
 }
 
-// document.addEventListener('blur', () => {
-//     variable.forEach(element => {
-//         document.getElementById(element.id).style.pointerEvents = "none";
-//         document.getElementById(element.id).style.opacity = 0;
-//         element.isOn = false;
-//     });
-// }, true);
-
-let info;
-let hora;
-let descripcion;
-
-async function RecogerInfo() {
-    info = await fetch('')
-    info.json()
-    //hora = info.hora;
-    //descripcion = info.descripcion
+async function fetchData() {
+    if (await checkAccessToken(accessToken)){
+        const result = await fetch('http://localhost:3000/hist/register', {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+        let hora = result.hora;
+        let descripcion = result.descripcion;
+        console.log(result);
+    }
 }
-
-
+fetchData();
 
 const registro = (id, hora, description) => {
     return `
@@ -144,6 +141,11 @@ function agregaEvento() {
 document.addEventListener("DOMContentLoaded", async () => {
     //
     //document
+    // for(let i = 1; i<=/* todos los elementos del fetch */; i++){
+        //document.getElementById("historial").innerHTML = registro(i, ${hora}, ${descripcion});
+    // }
+
+    console.log("safhblshjdbf sdhf bshd fbhsd bfhsbdhfbskdjhfb sdf bsdubfhsdbf shdfsbd d");
 
     document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
     document.getElementById("historial").innerHTML += registro(2, "14:50", "Hello");
@@ -158,7 +160,89 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-//Hacer un overlay invisible desde html que este arriba de todo el css con z index 
-//pero abajo del pop up, cuando se aprieta cualquier boton del pop up hacer que se 
-//corra lo que quiero que haga y despues al final se llame a la funcion ocultar, 
-//si se clickea el overlay tambien llamar a la funcion ocultar y ocultarse a si mismo
+
+
+
+
+
+
+
+
+
+
+
+
+
+let miDiv = document.getElementById("foto-de-perfil");
+
+async function changeProfilePic(){
+
+    const result = await fetch('http://localhost:3000/login', {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        }
+    })
+    
+    if(result.status != 200) return;
+
+    const data = await result.json();
+    let mail = data.email;
+    mail = mail.toUpperCase();
+
+    if (accessToken != null){
+        miDiv.innerHTML = profilePic(mail[0]);
+    }
+
+    const perfil_user = document.getElementById("perfil_user");
+    perfil_user.addEventListener("click", () => {
+        intercalar(opciones);
+    });
+
+    const overlay = document.getElementById("overlay");
+    overlay.addEventListener("click", () => {
+        intercalar(opciones);
+    });
+}
+
+//overlay.addEventListener('click',intercalar(opciones));
+
+document.addEventListener("DOMContentLoaded", changeProfilePic())
+
+const profilePic = (letra) => {
+    return `
+    <div class="perfil" id="perfil_user">
+            <span class="perfil__letra">${letra}</span>
+        </div>  `
+}
+
+let opciones = document.getElementById("opciones__perfil");
+opciones.style.opacity = 0;
+opciones.style.pointerEvents = "none";
+
+
+
+
+function intercalar(a){
+    if(a.style.opacity == 0){
+        overlay.style.pointerEvents = "auto";
+        a.style.opacity = 1;
+        a.style.pointerEvents = "auto";
+
+    }
+    else{
+        overlay.style.pointerEvents = "none";
+        a.style.opacity = 0;
+        a.style.pointerEvents = "none";
+    }
+}
+
+function moveToRegister(){
+    location.href = "../Register-Page/";
+}
+
+const eliminarCuenta = document.getElementById("opciones__eliminar-cuenta");
+
+eliminarCuenta.addEventListener('click', () => {
+    location.href = "../Delete-Account";
+});

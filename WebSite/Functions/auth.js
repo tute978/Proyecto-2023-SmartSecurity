@@ -7,6 +7,7 @@ async function checkAccessToken(accessToken){
     })
     
     if(result.status != 200) return false;
-    
-    return true;
+    else return true;
 }
+
+module.exports = {checkAccessToken};
