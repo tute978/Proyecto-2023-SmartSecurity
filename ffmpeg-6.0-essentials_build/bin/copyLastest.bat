@@ -1,0 +1,2 @@
+FOR /F "delims=" %%I IN ('DIR "C:\AppServ\www\Proyecto-2023-SmartSecurity\RTSP-HLS-SERVER" /A-D /B /O:D') DO SET "NewestFile=%%I"
+copy "C:\AppServ\www\Proyecto-2023-SmartSecurity\RTSP-HLS-SERVER\%NewestFile%" "C:\AppServ\www\Proyecto-2023-SmartSecurity\CameraFiles"

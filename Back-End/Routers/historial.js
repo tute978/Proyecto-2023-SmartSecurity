@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authenticateToken = require('./authentication').authenticateToken;
+const childProcess = require('child_process');
 
 const mysql = require('mysql2');
 const connection = mysql.createPool(process.env.DATABASE_URL).promise();
@@ -84,6 +85,20 @@ router.post('/register/create', async (req, res) => {
 
     let date = new Date().toLocaleString().slice(0, 16);
     await connection.query('INSERT INTO Historial (idCard, userEmail, hour, description) VALUES (?, ?, ?, ?)', [req.body.idCard, req.body.ownerEmail, date, description]);
+
+    const bat = childProcess.spawn('cmd.exe', ['/c', 'C:/AppServ/www/Proyecto-2023-SmartSecurity/ffmpeg-6.0-essentials_build/bin/copyLastest.bat', 'C:/AppServ/www/Proyecto-2023-SmartSecurity/ffmpeg-6.0-essentials_build/bin']);
+
+    bat.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      });
+      
+      bat.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+      });
+      
+      bat.on('exit', (code) => {
+        console.log(`Child process exited with code ${code}`);
+      });
 
     res.sendStatus(200);
 });

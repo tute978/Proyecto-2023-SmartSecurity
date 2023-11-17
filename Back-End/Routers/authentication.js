@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true
         });
-
+npm 
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         await connection.query('INSERT INTO Users (email, name, surname, password, refreshToken) VALUES (?, ?, ?, ?, ?)', [req.body.email, req.body.name, req.body.surname, hashedPassword, refreshToken]);
     }
