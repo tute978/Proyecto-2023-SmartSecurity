@@ -63,6 +63,8 @@ body {
     font-weight: 400;
     letter-spacing: 0.8px;
     color: rgb(255, 0, 0);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .login-form__text-input {

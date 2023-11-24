@@ -114,6 +114,11 @@ br{
     background-color: rgb(128, 128, 128);
     border-radius: 100%;
     padding: auto;
+    
+}
+
+.perfil:hover{
+    cursor: pointer;
 }
 
 .perfil__letra{
@@ -381,7 +386,6 @@ a{
     z-index: 30;
     background-color: rgb(199, 199, 199);
     height: auto;
-    margin-top: 70px;
     width: auto;
     padding: 0px 3px;
     position: fixed;
@@ -390,6 +394,8 @@ a{
     justify-content: space-between;
     flex-direction: column;
     margin-right: 20px;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .opciones__perfil:hover{

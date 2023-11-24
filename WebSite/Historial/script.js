@@ -1,4 +1,6 @@
-import { checkAccessToken } from '../Functions/auth';
+import { changeProfileImports, sendRefreshToken } from '../Functions/auth.js';
+
+changeProfileImports();
 
 let accessToken = sessionStorage.getItem('accessToken');
 let variable;
@@ -10,10 +12,9 @@ document.getElementById('overlay').addEventListener('click', (overlay) => {
 
 function Ocultar(jotason) {
     const elemento = document.getElementById(jotason.id);
-    console.log(elemento)
+    
     const overlay = document.getElementById("overlay");
     
-
     if (jotason.isOn) {
         overlay.style.pointerEvents="none";
         elemento.style.pointerEvents = "none";
@@ -28,20 +29,9 @@ function Ocultar(jotason) {
     }
 }
 
-async function fetchData() {
-    if (await checkAccessToken(accessToken)){
-        const result = await fetch('http://localhost:3000/hist/register', {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${accessToken}`
-            }
-        })
-        let hora = result.hora;
-        let descripcion = result.descripcion;
-        console.log(result);
-    }
-}
-fetchData();
+
+
+
 
 const registro = (id, hora, description) => {
     return `
@@ -123,8 +113,7 @@ Cosas que me dice chami que haga:
 
 function agregaEvento() {
     Array.from(document.getElementsByClassName('eliminar')).forEach(element => {
-        console.log(element);
-        console.log("aaaa");
+
         element.addEventListener("click", () => {
             const id = element.getAttribute("dataid");
 
@@ -132,29 +121,43 @@ function agregaEvento() {
             if (node.parentNode) {
                 node.parentNode.removeChild(node)
                 document.getElementById("overlay").style.pointerEvents = "none";
+                //fetch que mande el id del registro y lo elimine
             }
         });
     });
 }
 
 
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
-    //
-    //document
-    // for(let i = 1; i<=/* todos los elementos del fetch */; i++){
-        //document.getElementById("historial").innerHTML = registro(i, ${hora}, ${descripcion});
-    // }
+    let result = await fetch('http://localhost:3000/hist/register', {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        }
+    })
 
-    console.log("safhblshjdbf sdhf bshd fbhsd bfhsbdhfbskdjhfb sdf bsdubfhsdbf shdfsbd d");
+    if(result.status != 200){
+        sendRefreshToken();
+        location.href("./");
+    }
 
-    document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(2, "14:50", "Hello");
-    document.getElementById("historial").innerHTML += registro(3, "14:50", "Shalom");
-    document.getElementById("historial").innerHTML += registro(4, "14:50", "Chiao");
-    document.getElementById("historial").innerHTML += registro(5, "14:50", "Bonasera");
+    result = await result.json();
+
+    for(let i = 0; i < result.length; i++){ 
+        let hora = result[i].hour;
+        let descripcion = result[i].description;
+        let id = result[i].id;
+
+        document.getElementById("historial").innerHTML += registro(id, hora, descripcion);
+    }
 
     variable = ocultarVariable();
-    console.log(variable);
     agregaEvento();
     updateClick();
 });
@@ -164,85 +167,3 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-
-
-
-
-
-
-
-
-
-let miDiv = document.getElementById("foto-de-perfil");
-
-async function changeProfilePic(){
-
-    const result = await fetch('http://localhost:3000/login', {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${accessToken}`
-        }
-    })
-    
-    if(result.status != 200) return;
-
-    const data = await result.json();
-    let mail = data.email;
-    mail = mail.toUpperCase();
-
-    if (accessToken != null){
-        miDiv.innerHTML = profilePic(mail[0]);
-    }
-
-    const perfil_user = document.getElementById("perfil_user");
-    perfil_user.addEventListener("click", () => {
-        intercalar(opciones);
-    });
-
-    const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", () => {
-        intercalar(opciones);
-    });
-}
-
-//overlay.addEventListener('click',intercalar(opciones));
-
-document.addEventListener("DOMContentLoaded", changeProfilePic())
-
-const profilePic = (letra) => {
-    return `
-    <div class="perfil" id="perfil_user">
-            <span class="perfil__letra">${letra}</span>
-        </div>  `
-}
-
-let opciones = document.getElementById("opciones__perfil");
-opciones.style.opacity = 0;
-opciones.style.pointerEvents = "none";
-
-
-
-
-function intercalar(a){
-    if(a.style.opacity == 0){
-        overlay.style.pointerEvents = "auto";
-        a.style.opacity = 1;
-        a.style.pointerEvents = "auto";
-
-    }
-    else{
-        overlay.style.pointerEvents = "none";
-        a.style.opacity = 0;
-        a.style.pointerEvents = "none";
-    }
-}
-
-function moveToRegister(){
-    location.href = "../Register-Page/";
-}
-
-const eliminarCuenta = document.getElementById("opciones__eliminar-cuenta");
-
-eliminarCuenta.addEventListener('click', () => {
-    location.href = "../Delete-Account";
-});
