@@ -15,14 +15,6 @@ async function changeProfilePic(accessToken, div, callback){
 
     div.innerHTML = profilePic(mail[0]);
 
-    console.log(navbar_historial);
-
-    let navbar_historial = document.getElementById("navbar__historial");
-    let navbar_camara = document.getElementById("navbar__camara");
-
-    navbar_camara.href="../Camara/";
-    navbar_historial.href="../Historial/";
-
     callback();
 }
 
