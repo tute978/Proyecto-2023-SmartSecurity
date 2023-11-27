@@ -6,3 +6,5 @@ function moveToRegister(){
     location.href = "../Register-Page/";
 }
 
+
+

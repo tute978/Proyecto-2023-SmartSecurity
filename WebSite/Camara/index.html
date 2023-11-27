@@ -29,19 +29,30 @@
         </div>
 
         <div class="navbar__historial">
-            <a href="../Historial/"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
+            <a id="navbar__historial" href="../Historial/"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
         </div>
 
         <div class="navbar__camara">
-            <a href="../Camara/"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
+            <a id="navbar__camara" href="../Camara/"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
         </div>
     </div>            
     <div class="perfil" id="foto-de-perfil">
         <span class="perfil__letra">X</span>
-    </div>    
+    </div>
 </header>
 
 <body>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="opciones__perfil" id="opciones__perfil">
+        <div class="opciones__cerrar-sesion" id="opciones__cerrar-sesion">
+            <span class="opciones__cerrar-sesion-texto">Cerrar Sesión</span>
+        </div>
+        <div class="opciones__eliminar-cuenta" id="opciones__eliminar-cuenta">
+            <span class="opciones__eliminar-cuenta-texto">Eliminar Cuenta</span>
+        </div>
+    </div>
+
     <div class="raviol">
 
     </div>
@@ -56,8 +67,8 @@
     <div class="footer__links">
         <a href="../Inicio/"><span class="footer__links__home-page">Página Principal</span></a>
         <a href="../Inicio/#caracteristicas"><span class="footer__links__informacion">Información</span></a>
-        <a href="../Historial/"><span class="footer__links__historial">Historial</span></a>
-        <a href="../Camara"><span class="footer__links__camara">Cámara</span></a>
+        <a id="footer_historial" href="../Historial/"><span class="footer__links__historial">Historial</span></a>
+        <a id="footer_camara" href="../Camara"><span class="footer__links__camara">Cámara</span></a>
     </div>
     <div class="footer__contactos">
         <span class="footer__contactos__texto">Contáctanos</span>

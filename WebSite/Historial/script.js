@@ -1,4 +1,4 @@
-import { changeProfileImports, sendRefreshToken } from '../Functions/auth.js';
+import { changeProfileImports} from '../Functions/auth.js';
 
 changeProfileImports();
 
@@ -60,7 +60,7 @@ const registro = (id, hora, description) => {
                             <img src="../Images/icono descargar.png" alt="">                           
                             Descargar
                         </button>
-                        <button class="value eliminar" dataid="${id}" onclick="console.log('hola')">
+                        <button class="value eliminar" dataid="${id}"">
                             <img src="../Images/Icono tacho de basura.png" alt="">
                             Eliminar
                         </button>
@@ -78,13 +78,10 @@ const updateClick = () => {
     Array.from(document.getElementsByClassName('historial__registro__opciones__boton')).forEach((element) => {
         const id = element.getAttribute("dataid");
 
-        console.log(element);
-
         element.addEventListener("click", (e) => {
             Ocultar(variable.find(x => x.id == `button${id}`));
         });
     });
-    console.log("AAAAAAA")
 }
 
 const ocultarVariable = () => {
@@ -101,17 +98,9 @@ const ocultarVariable = () => {
 };
 
 
-/*
-Averiguar la manera de hacer un array con lo que venga del fetch
-Aprender como crear nuevos registros y meterle la informacion del fetch
 
 
-Cosas que me dice chami que haga:
-- Fetch on informacion que me puede legar a llegar
--
-*/
-
-function agregaEvento() {
+async function agregaEvento() {
     Array.from(document.getElementsByClassName('eliminar')).forEach(element => {
 
         element.addEventListener("click", () => {
@@ -121,13 +110,23 @@ function agregaEvento() {
             if (node.parentNode) {
                 node.parentNode.removeChild(node)
                 document.getElementById("overlay").style.pointerEvents = "none";
-                //fetch que mande el id del registro y lo elimine
+                eliminarRegistro(id);
             }
         });
     });
 }
 
-
+async function eliminarRegistro(id){
+    let res = await fetch('http://localhost:3000/hist/register/delete', {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({
+            id: id
+        })
+    })
+}
 
 
 
@@ -140,19 +139,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         headers: {
             "Authorization": `Bearer ${accessToken}`
         }
-    })
+    });
 
-    if(result.status != 200){
-        sendRefreshToken();
-        location.href("./");
-    }
+    let hora;
+    let descripcion;
+    let id;
+
 
     result = await result.json();
 
     for(let i = 0; i < result.length; i++){ 
-        let hora = result[i].hour;
-        let descripcion = result[i].description;
-        let id = result[i].id;
+        hora = result[i].hour;
+        descripcion = result[i].description;
+        id = result[i].id;
 
         document.getElementById("historial").innerHTML += registro(id, hora, descripcion);
     }

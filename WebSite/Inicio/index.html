@@ -29,14 +29,14 @@
                 <a href="../Inicio/#caracteristicas"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
             </div>
 
-            <div class="navbar__historial" id="navbar__historial">
-                <a href="../Historial/"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
+            <div class="navbar__historial">
+                <a href="../Login-Page/" id="navbar__historial"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
             </div>
 
-            <div class="navbar__camara" id="navbar__camara">
-                <a href="../Camara/"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
+            <div class="navbar__camara">
+                <a href="../Login-Page/" id="navbar__camara"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
             </div>
-        </div>            
+        </div>
         <div class="login-btns-wrapper" id="foto-de-perfil">
             <a href="../Register-Page/" class="register-btn">Registrarse</a>
             <a href="../Login-Page/" class="login-btn">Iniciar Sesión</a>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="descriptive-image"> 
-                <img src="../Images/desctiptive-image.png" alt="desctiptive-image">
+                <img src="../Images/Foto 1 SmartSecurity.jpg" alt="desctiptive-image">
             </div>
 
             <div class="basic-info">
@@ -63,7 +63,9 @@
                     <span class="texto">En Smart Secutity nos preocupamos por tu seguridad. Nuestra prioridad ante todo es protegerte tanto a vos como a tus pertenencias.</span>
                     <button onclick="moveToRegister()" class="subtitulo" id="pointer">Empezar</button>
                 </div>
-                <img src="../Images/Imagen-cerrojo.png" alt="Imagen-cerrojo" class="fotito">
+                <div class="basic-info__foto">
+                    <img src="../Images/Foto 4 SmartSecurity.jpg.jfif" alt="Imagen-cerrojo" class="fotito">
+                </div>
 
             </div>
 
@@ -110,7 +112,7 @@
                 <div class="caracteristicas__datos">
                     <div class="caracteristicas__datos__titulo"><span class="titulo">¿Qué es Smart Security?</span></div>
                     <div class="caracteristicas__datos__texto1"><span class="texto">Smart Security es un un sistema de control de accesos para una casa mediante tarjetas, huella digital, código y llave.</span></div>
-                    <div class="caracteristicas__datos__texto2"><span class="texto">Contiene una base de datos en la cual se almacena un registro del momento en el qué se abre la puerta. También tiene un sistema qué envia un mail cada vez qué se intenta forzar la cerradura. </span></div>
+                    <div class="caracteristicas__datos__texto2"><span class="texto">Contiene una base de datos en la cual se almacena un registro del momento en el qué se abre la puerta.</span></div>
                 </div>
             </div>
 
@@ -131,7 +133,7 @@
                             <img class="informacion-personal__img" src="../Images/Ñomco.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Matías Ronconi</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de realizar tanto el deseño de la página web como la programación de la misma</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de realizar tanto el diseño como la programación de la Página Web</span></div>
                             </div>
                         </div>
                         <div class="informacion-personal__perfiles__catalina-birger" id="perfil">
@@ -153,14 +155,14 @@
                             <img class="informacion-personal__img" src="../Images/Limon.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Simon Escolar</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de la programacion y las conexiones del RFID con la placa ESP8266</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado de la programacion y las conexiones del RFID con la placa ESP32</span></div>
                             </div>
                         </div>
                         <div class="informacion-personal__perfiles__matias-buñes" id="perfil">
                             <img class="informacion-personal__img" src="../Images/Muñes.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Matías Buñes</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el principal encargado de armar las conexiones del arduino y programar el microcontrolador. Su principal rol en el proyecto fue jugar al Dream League Soccer, juego en el que se a vuelto muy bueno por el tiempo que le dedico a este y no a proyecto</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Fue el encargado del funcionamiento de la cámara y la huella digital</span></div>
                             </div>
                         </div>
 
@@ -175,7 +177,7 @@
                             <img class="informacion-personal__img" src="../Images/Chamin.jpeg" alt="Icono-Usuario">
                             <div class="informacion-personal__perfiles__texto">
                                 <div class="informacion-personal__perfiles__usuario"><span class="texto">Luca Chami</span></div>
-                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Programador de la base de datos y del conversor del tipo de video de la camara a un formato de archivo el cual pueda reproducir la pagina web</span></div>
+                                <div class="informacion-personal__perfiles__informacion"><span class="parrafo">Programador de la base de datos y del conversor del tipo de video de la camara de RTCP a HLS</span></div>
                             </div>
                         </div>
 
@@ -191,8 +193,8 @@
     <div class="footer__links">
         <a href="../Inicio/"><span class="footer__links__home-page">Página Principal</span></a>
         <a href="../Inicio/#caracteristicas"><span class="footer__links__informacion">Información</span></a>
-        <a href="../Historial/"><span class="footer__links__historial">Historial</span></a>
-        <a href="../Camara"><span class="footer__links__camara">Cámara</span></a>
+        <a id="footer_historial" href="../Login-Page/"><span class="footer__links__historial">Historial</span></a>
+        <a id="footer_camara" href="../Login-Page/"><span class="footer__links__camara">Cámara</span></a>
     </div>
     <div class="footer__contactos">
         <span class="footer__contactos__texto">Contáctanos</span>

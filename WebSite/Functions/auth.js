@@ -7,13 +7,26 @@ async function changeProfilePic(accessToken, div, callback){
         }
     })
     
-    if(result.status != 200) return;
+    if(result.status != 200) {
+        sendRefreshToken(true);
+        return;
+    }
 
     const data = await result.json();
     let mail = data.email;
     mail = mail.toUpperCase();
 
     div.innerHTML = profilePic(mail[0]);
+
+    let navbar_camara = document.getElementById("navbar__camara");
+    let navbar_historial = document.getElementById("navbar__historial");
+    let footer_camara = document.getElementById("footer_camara");
+    let footer_historial = document.getElementById("footer_historial");
+    
+    navbar_camara.href="../Camara/";
+    navbar_historial.href="../Historial/";
+    footer_camara.href="../Camara/";
+    footer_historial.href="../Historial/";
 
     callback();
 }
@@ -61,28 +74,36 @@ export function changeProfileImports() {
         });
 
         opciones__eliminarCuenta.addEventListener("click", () =>{
-            location.href("../Delete-Account/")
+            location.href = "../Delete-Account/";
         });
-        opciones__cerrarSesion.addEventListener("click", () => {
-            //elimino el refresh token para que la unica manera de iniciar sesion sea iniciando desde cero, 
-            //tambien redirige a la página principal
-            console.log('fortnite clip');
+        opciones__cerrarSesion.addEventListener("click", async () => {
+            let resultado = await fetch('http://localhost:3000/logout', {
+                method: "DELETE",
+                credentials: 'include'
+            });
+            sessionStorage.removeItem('accessToken');
+            if(resultado.status != 200){
+                console.log("ERROR MUTANTE")
+            }
+
+            location.href="../Inicio/"
         });
     }));
 }
 
 
-export async function sendRefreshToken(){
+export async function sendRefreshToken(reloadPage){
     let result = await fetch('http://localhost:3000/token', {
         method: "GET",
         credentials: 'include'
     });
 
-    if(result.status != 200){
-        location.href("../Inicio/")
-    }
-
+    
     result = await result.json();
     sessionStorage.setItem('accessToken', result);
+
+    if(reloadPage){
+        document.location.reload();
+    }
 }
 //ejecutar cada vez que pida informacion y el access token 

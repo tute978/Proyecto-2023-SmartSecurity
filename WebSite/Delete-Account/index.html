@@ -20,20 +20,20 @@
             <div class="fondo-texto">
                 <img src="../Images/brand-logo.png" class="delete-account__image">
                 <h2 class="delete-account__h2 brand-font">Eliminar Cuenta</h2>
-                <p class="delete-account__p brand-font">¿Estas seguro de que quieres eliminar tu cuenta?</p>
+                <p id="delete-account__p" class="delete-account__p brand-font">¿Estas seguro de que quieres eliminar tu cuenta?</p>
             </div>
             <div class="boton">
                 <div class="boton__password-confirmar">
                     <input type="password" class="delete-account__password" placeholder="Contraseña"  id="password">
                     <div class="boton__confirmar">
                         <input class="delete-account__checkbox" type="checkbox" name="seguro" id="seguro" value="seguro">
-                        <span class="delete-account__texto">Marcar para confirmar</span>
+                        <label class="delete-account__texto" for="seguro">Marcar para confirmar</label>
                     </div>
                 </div>
-                <input class="delete-account__submit" type="submit" placeholder="Eliminar" value="Eliminar">
+                <input id="boton-eliminar" class="delete-account__submit" type="submit" placeholder="Eliminar" value="Eliminar">
             </div>
         </div>
     </form>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

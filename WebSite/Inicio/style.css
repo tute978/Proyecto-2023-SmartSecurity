@@ -135,14 +135,20 @@ br{
     height: 34px;
 }
 
-.descriptive-image{
+.descriptive-image {
     width: 100vw;
-    height: 100vh;
+    height: 100vh; 
+}
+
+.descriptive-image img{
+    width: 100vw;
+    height: 100vh; 
+    margin-bottom: 20px;
 }
 
 .basic-info{
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     padding-top: 66px;
     padding-left: 93px;
     justify-content: space-between;
@@ -172,10 +178,16 @@ br{
 }
 
 .fotito{
-    padding-right: 80px;
-    width: 693px;
-    height: 461px;
-    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.basic-info__foto{
+    height: 500px;
+    margin: 0vw;
+    padding: 0vw;
+    width: 1000px;
+    margin-right: 70px;
 }
 
 .basic-info button{
@@ -225,6 +237,7 @@ br{
     margin-left: 80px;
     margin-top: 95px;
     justify-content: center;
+  
 }
 
 
