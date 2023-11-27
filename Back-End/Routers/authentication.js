@@ -150,7 +150,7 @@ async function comparePassword(email, password){
 }
 
 function generateAccessToken(payload){
-    return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'});
+    return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '3h'});
 }
 
 async function updateRefreshToken(payload){

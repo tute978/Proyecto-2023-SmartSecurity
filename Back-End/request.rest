@@ -11,8 +11,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "luquitavo@gmail.com",
-    "password": "5050"
+    "email": "simonescolar@gmail.com",
+    "password": "4000"
 }
 
 ###
@@ -72,12 +72,13 @@ GET http://localhost:3000/hist/card/finger-print
 ###
 
 POST http://localhost:3000/hist/card/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExMTU1NTksImV4cCI6MTcwMTEyNjM1OX0.Qs_fCSL3zqCjox702IrOLRGJGSlXtiC5kVWDF_jXIW4
 Content-Type: application/json
 
 {
-    "id": "49394iDSD",
-    "name": "Daniela",
-    "surname": "Java",
+    "id": "2",
+    "name": "Mati",
+    "surname": "Buñes",
     "isFingerPrint": true
 }
 
@@ -93,7 +94,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/hist/register
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1cXVpdGF2b0BnbWFpbC5jb20iLCJpYXQiOjE2OTk4OTYxNDQsImV4cCI6MTY5OTg5OTc0NH0.RjyVAjP6K6q5FceLQ3EfG-TxShT3b4vvqM376L4PqIY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
 
 ###
 
@@ -102,15 +103,26 @@ Content-Type: application/json
 
 {
     "idCard": "8D08718B",
-    "ownerEmail": "luquitavo@gmail.com"
+    "ownerEmail": "simonescolar@gmail.com"
     //"description": "ingreso"
 }
 
 ###
 
 POST http://localhost:3000/hist/register/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
 Content-Type: application/json
 
 {
-    "id": 17
+    "id": 158
+}
+
+###
+
+POST http://localhost:3000/hist/register/video
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
+Content-Type: application/json
+
+{
+    "id": 158
 }
