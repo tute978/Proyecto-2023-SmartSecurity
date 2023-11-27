@@ -1,3 +1,8 @@
+import { changeProfileImports, sendRefreshToken } from '../Functions/auth.js';
+
+changeProfileImports();
+
+let accessToken = sessionStorage.getItem('accessToken');
 let variable;
 
 document.getElementById('overlay').addEventListener('click', (overlay) => {
@@ -7,10 +12,9 @@ document.getElementById('overlay').addEventListener('click', (overlay) => {
 
 function Ocultar(jotason) {
     const elemento = document.getElementById(jotason.id);
-    console.log(elemento)
+    
     const overlay = document.getElementById("overlay");
     
-
     if (jotason.isOn) {
         overlay.style.pointerEvents="none";
         elemento.style.pointerEvents = "none";
@@ -25,24 +29,7 @@ function Ocultar(jotason) {
     }
 }
 
-// document.addEventListener('blur', () => {
-//     variable.forEach(element => {
-//         document.getElementById(element.id).style.pointerEvents = "none";
-//         document.getElementById(element.id).style.opacity = 0;
-//         element.isOn = false;
-//     });
-// }, true);
 
-let info;
-let hora;
-let descripcion;
-
-async function RecogerInfo() {
-    info = await fetch('')
-    info.json()
-    //hora = info.hora;
-    //descripcion = info.descripcion
-}
 
 
 
@@ -126,8 +113,7 @@ Cosas que me dice chami que haga:
 
 function agregaEvento() {
     Array.from(document.getElementsByClassName('eliminar')).forEach(element => {
-        console.log(element);
-        console.log("aaaa");
+
         element.addEventListener("click", () => {
             const id = element.getAttribute("dataid");
 
@@ -135,30 +121,49 @@ function agregaEvento() {
             if (node.parentNode) {
                 node.parentNode.removeChild(node)
                 document.getElementById("overlay").style.pointerEvents = "none";
+                //fetch que mande el id del registro y lo elimine
             }
         });
     });
 }
 
 
-document.addEventListener("DOMContentLoaded", async () => {
-    //
-    //document
 
-    document.getElementById("historial").innerHTML = registro(1, "13:50", "Hola");
-    document.getElementById("historial").innerHTML += registro(2, "14:50", "Hello");
-    document.getElementById("historial").innerHTML += registro(3, "14:50", "Shalom");
-    document.getElementById("historial").innerHTML += registro(4, "14:50", "Chiao");
-    document.getElementById("historial").innerHTML += registro(5, "14:50", "Bonasera");
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    let result = await fetch('http://localhost:3000/hist/register', {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${accessToken}`
+        }
+    })
+
+    if(result.status != 200){
+        sendRefreshToken();
+        location.href("./");
+    }
+
+    result = await result.json();
+
+    for(let i = 0; i < result.length; i++){ 
+        let hora = result[i].hour;
+        let descripcion = result[i].description;
+        let id = result[i].id;
+
+        document.getElementById("historial").innerHTML += registro(id, hora, descripcion);
+    }
 
     variable = ocultarVariable();
-    console.log(variable);
     agregaEvento();
     updateClick();
 });
 
 
-//Hacer un overlay invisible desde html que este arriba de todo el css con z index 
-//pero abajo del pop up, cuando se aprieta cualquier boton del pop up hacer que se 
-//corra lo que quiero que haga y despues al final se llame a la funcion ocultar, 
-//si se clickea el overlay tambien llamar a la funcion ocultar y ocultarse a si mismo
+
+
+
+

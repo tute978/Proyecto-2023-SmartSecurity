@@ -440,7 +440,7 @@ br{
 
 .informacion-personal__img{
     margin-right: 12px;
-    width: 80px;
+    width: 96.5px;
     height: 80px;
     border-radius: 100%;
 }
@@ -595,6 +595,8 @@ a{
     justify-content: space-between;
     flex-direction: column;
     margin-right: 20px;
+    opacity: 0;
+    
 }
 
 .opciones__perfil:hover{

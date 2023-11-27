@@ -37,6 +37,7 @@ async function registerFormFunc(e){
         console.log("NONONONNNONOOONONON");
         console.log(miDiv)
         miDiv.innerHTML = mensaje;
+        scrollToTop();
     }
 }
 registerForm.addEventListener("submit", registerFormFunc)
@@ -44,3 +45,10 @@ registerForm.addEventListener("submit", registerFormFunc)
 function btnLogin(a){
     location.href=a;
 }
+
+const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Hace que el desplazamiento sea suave
+    });
+  };
