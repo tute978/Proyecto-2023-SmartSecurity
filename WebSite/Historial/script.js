@@ -56,7 +56,7 @@ const registro = (id, hora, description) => {
                     <button dataid="${id}" class="historial__registro__opciones__boton"><img src="../Images/Opciones registro historial.png" alt=""></button>
 
                     <div class="input invisible" id="button${id}">
-                        <button class="value descargar">
+                        <button class="value descargar" dataid="${id}">
                             <img src="../Images/icono descargar.png" alt="">                           
                             Descargar
                         </button>
@@ -118,14 +118,26 @@ async function agregaEvento() {
 
 async function eliminarRegistro(id){
     let res = await fetch('http://localhost:3000/hist/register/delete', {
-        method: "DELETE",
+        method: "POST",
         headers: {
-            "Authorization": `Bearer ${accessToken}`
+            "Authorization": `Bearer ${accessToken}`,
+            "Content-Type": "Application/json"
         },
         body: JSON.stringify({
             id: id
         })
     })
+}
+
+async function eventoDesgarga() {
+    Array.from(document.getElementsByClassName('descargar')).forEach(element => {
+
+        element.addEventListener("click", () => {
+            const id = element.getAttribute("dataid");
+            sessionStorage.setItem('videoID', id);
+            location.href = '../Fragmentos-de-Video';
+        });
+    });
 }
 
 
@@ -158,6 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     variable = ocultarVariable();
     agregaEvento();
+    eventoDesgarga();
     updateClick();
 });
 
