@@ -91,6 +91,7 @@ router.post('/register/create', async (req, res) => {
     let fileName;
     bat.stdout.on('data', (data) => {
         const output = data.toString().trim();
+
         // Extraer el valor de la variable del script de batch
         if(output.match(/NewestFileMp4=(.+)/)){
             fileName = output.match(/NewestFileMp4=(.+)/)[1].replace('"', "");
