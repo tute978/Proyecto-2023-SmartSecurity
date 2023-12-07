@@ -72,7 +72,7 @@ GET http://localhost:3000/hist/card/finger-print
 ###
 
 POST http://localhost:3000/hist/card/register
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExMTU1NTksImV4cCI6MTcwMTEyNjM1OX0.Qs_fCSL3zqCjox702IrOLRGJGSlXtiC5kVWDF_jXIW4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExNjg0MzcsImV4cCI6MTcwMTE3OTIzN30.5wM08fw413oDFxkgpqSeYaUhJaffgw4QQ3VBqKQdYEY
 Content-Type: application/json
 
 {
@@ -94,7 +94,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/hist/register
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExNjg0MzcsImV4cCI6MTcwMTE3OTIzN30.5wM08fw413oDFxkgpqSeYaUhJaffgw4QQ3VBqKQdYEY
 
 ###
 
@@ -110,19 +110,19 @@ Content-Type: application/json
 ###
 
 POST http://localhost:3000/hist/register/delete
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExNzEwOTksImV4cCI6MTcwMTE4MTg5OX0.t7m3cNS9No9MiI2FjWUXvEBDITYoI6zeXPyABjyoWkQ
 Content-Type: application/json
 
 {
-    "id": 158
+    "id": 206
 }
 
 ###
 
 POST http://localhost:3000/hist/register/video
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDEwODUxNzIsImV4cCI6MTcwMTA5NTk3Mn0.tdc2vbIDihggFZDIxAN5f6-km0dNCocrzra1c68pSHA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpbW9uZXNjb2xhckBnbWFpbC5jb20iLCJpYXQiOjE3MDExNzEwOTksImV4cCI6MTcwMTE4MTg5OX0.t7m3cNS9No9MiI2FjWUXvEBDITYoI6zeXPyABjyoWkQ
 Content-Type: application/json
 
 {
-    "id": 158
+    "id": 222
 }

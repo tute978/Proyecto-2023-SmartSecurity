@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragmentos de Video</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+    <script defer src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+  </head>
+  <header>
+    <div class="navbar">
+        
+        <img src="../Images/Logo (5).png" alt="brand-logo">
+
+        <div class="navbar__home-page">
+            <a href="../Inicio/"><img src="../Images/SimboloHomePage.png" alt="SimboloHomePage"><br>Página Principal</a>
+        </div>
+            
+        <div class="navbar__info">
+            <a href="../Inicio/#caracteristicas"><img src="../Images/IconoDeInformacion.png" alt="IconoDeInformacion"><br>Información</a>
+        </div>
+
+        <div class="navbar__historial">
+            <a id="navbar__historial" href="../Historial/"><img src="../Images/IconoDeHistorial.png" alt=""><br>Historial</a>
+        </div>
+
+        <div class="navbar__camara">
+            <a id="navbar__camara" href="../Camara/"><img src="../Images/SimboloCamara.png" alt=""><br>Cámara</a>
+        </div>
+    </div>            
+    <div class="perfil" id="foto-de-perfil">
+        <span class="perfil__letra">X</span>
+    </div>
+  </header>
+  <body>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="opciones__perfil" id="opciones__perfil">
+        <div class="opciones__cerrar-sesion" id="opciones__cerrar-sesion">
+            <span class="opciones__cerrar-sesion-texto">Cerrar Sesión</span>
+        </div>
+        <div class="opciones__eliminar-cuenta" id="opciones__eliminar-cuenta">
+            <span class="opciones__eliminar-cuenta-texto">Eliminar Cuenta</span>
+        </div>
+    </div>
+
+    <video
+      id="my-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="640"
+      height="264"
+      data-setup="{}"
+    >
+
+    <script type="module" src="./script.js" >
+    </script>
+    
+      
+      <source id="video__sourceID">
+
+      
+    </video>
+  </body>
+  <footer class="footer">
+    <div class="footer__image">
+        <img src="../Images/Logo con letras 1.png" alt="Logo con letras 1">
+    </div>
+    <div class="footer__links">
+        <a href="../Inicio/"><span class="footer__links__home-page">Página Principal</span></a>
+        <a href="../Inicio/#caracteristicas"><span class="footer__links__informacion">Información</span></a>
+        <a id="footer_historial" href="../Historial/"><span class="footer__links__historial">Historial</span></a>
+        <a id="footer_camara" href="../Camara"><span class="footer__links__camara">Cámara</span></a>
+    </div>
+    <div class="footer__contactos">
+        <span class="footer__contactos__texto">Contáctanos</span>
+        <img class="footer__contactos__iconos" src="../Images/Iconos de contactos.png" alt="Iconos de contactos">
+    </div>
+</footer>
+</html>

@@ -106,9 +106,8 @@ br{
     border-radius: 100%;
 }
 
-.raviol{
-    height: 300px;
-    width: 300px;
+.video-js{
+    scale: 1.5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,6 +115,13 @@ br{
     position: relative;
     margin: 100px auto;
     margin-bottom: 100px;
+}
+
+#my-video{
+    display: flex;
+    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .opciones__perfil{
